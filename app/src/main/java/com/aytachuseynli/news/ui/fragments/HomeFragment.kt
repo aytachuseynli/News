@@ -35,8 +35,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         return binding.root
     }
@@ -59,13 +58,9 @@ class HomeFragment : Fragment() {
 
         // Navigate to the DetailFragment
         newsAdapter.onItemClick = {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
+            findNavController().safeNavigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(it))
         }
 
-        // Setup search functionality using EditText
-//        binding.searchText.addTextChangedListener { newText ->
-//            viewModel.onQueryTextChange(newText.toString())
-//        }
     }
 
     private fun setupRecyclerView() {
